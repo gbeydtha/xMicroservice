@@ -1,0 +1,27 @@
+
+### Run the docker
+>docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+
+
+### Stop 
+>docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+
+### list of the containers
+>docker ps -aq
+
+
+### Stop one or more running containers
+>docker stop $(docker ps -aq)
+
+
+### Remove one or more containers
+>docker rm $(docker ps -aq)
+
+
+### Remove one or more images
+>docker rmi $(docker images -aq)
+
+
+### Remove unnamed images 
+>docker system prune

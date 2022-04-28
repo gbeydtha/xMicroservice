@@ -1,15 +1,22 @@
 
-MONGO
+MONGO DB
 
 
 >>docker pull mongo
+
 >>docker run -d -p 27017:27017 --name shopping-mongo mongo
+
 get into mongo 
 >>docker exec -it shopping-mongo /bin/bash
+
 > ls -- for list
+
 > show dbs or show databases  -- display databases
+
 > use CatalogDb --create Catalog DB
+
 > db.createCollection('Products') --create Products Document (table)
+
 --Insert data in the Document Collection (table)>
 > db.Products.insertMany(
 [{

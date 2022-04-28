@@ -1,0 +1,14 @@
+
+Redis DB 
+Remote dictionary Server
+Redis is an open source key-value store that functions as a data structure server
+
+## Open source NoSQL Database
+## Remote Dictionary Server
+## Key-value pair
+## Data Structure Server and exctremely fast
+## Save data on RAM and on Disk
+
+## Cannot support compledx query like RDBMS
+
+##########################################################################################################
