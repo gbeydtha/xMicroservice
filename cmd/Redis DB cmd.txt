@@ -12,3 +12,12 @@ Redis is an open source key-value store that functions as a data structure serve
 ## Cannot support compledx query like RDBMS
 
 ##########################################################################################################
+### Pull from Docker
+> docker pull redis
+> docker run -d -p 6379:6379 --name aspnetrun-redis redis
+> docker exec -it aspnetrun-redis /bin/bash
+Redis CLI Command using -it (inter active terminal)
+> redis-cli
+>set key value
+>set name Abul 
+>get name
