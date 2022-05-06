@@ -21,3 +21,5 @@ Redis CLI Command using -it (inter active terminal)
 >set key value
 >set name Abul 
 >get name
+
+<swn>

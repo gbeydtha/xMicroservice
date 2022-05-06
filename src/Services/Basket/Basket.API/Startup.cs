@@ -1,4 +1,6 @@
+using Basket.API.GrpcService;
 using Basket.API.Repository;
+using Discount.Grpc.Protos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +31,13 @@ namespace Basket.API
             services.AddStackExchangeRedisCache(options => {
                 options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");  
             });
-            services.AddScoped<IBasketRepository, BasketRepository>(); 
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
+     
+            services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
+                (o => o.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
+
+            services.AddScoped<DisocuntGrpcService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -1,4 +1,7 @@
 
+##Build the dicker if any changed in the docker file
+> docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up --build
+
 ### Run the docker
 >docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
