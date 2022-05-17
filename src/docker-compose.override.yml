@@ -27,6 +27,16 @@ services:
     volumes:
         - postgres_data:/var/lib/postgresql/data/
 
+  orderdbx:
+    container_name: orderdbx
+    environment:
+       SA_PASSWORD: ""
+       ACCEPT_EULA: "Y"
+       MSSQL_PID: "Express"
+    restart: always
+    ports:
+       - "1433:1433"
+
   pgadmin:
     container_name: pgadmin
     environment:
@@ -72,7 +82,7 @@ services:
 
 
   discount.api:
-    container_name:   discount.api
+    container_name: discount.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
@@ -91,4 +101,15 @@ services:
      - discountdb
     ports:
       - "8003:80"
+
+
+  ordering.api:
+    container_name: ordering.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdbx;DataBase=OrderDbx;Integrated Security=False; User Id=sa;Password=Bid123456;"
+    depends_on:
+     - orderdbx
+    ports:
+      - "8004:80"
 

@@ -26,9 +26,9 @@ namespace Ordering.API.Controllers
 
         [HttpGet("{userName}", Name = "GetOrder")]
         [ProducesResponseType(typeof(IEnumerable<OrdersDto>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<OrdersDto>>> GetOrderByUserName(string username)
+        public async Task<ActionResult<IEnumerable<OrdersDto>>> GetOrderByUserName(string userName)
         {
-            var query = new GetOrdersListQuery(username);
+            var query = new GetOrdersListQuery(userName);
             var orders = await _mediator.Send(query);
             
             return Ok(orders); 
@@ -53,7 +53,7 @@ namespace Ordering.API.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}", Name = "DeleteOrder")]
+        [HttpDelete("{id}", Name = "DeleteOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
